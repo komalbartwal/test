@@ -203,9 +203,9 @@
 			background-size: cover;
 		}
 
-		.bgi-size#{$infix}-contain {
-			background-size: contain;
-		}	
+		// .bgi-size#{$infix}-contain {
+		// 	background-size: contain;
+		// }	
 
 		// Background attachment
 		.bgi-attachment#{$infix}-fixed {
@@ -218,5 +218,14 @@
 	}
 }
 
-
-
+.wrapper {
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    justify-content: center;
+    width: 25%;
+    min-height: 80%;
+    // padding: 30px;
+    margin-bottom: 0px;
+    height: 527px;
+}

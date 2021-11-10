@@ -8,7 +8,7 @@ import {
   ILayoutCSSVariables,
 } from './default-layout.config';
 
-const LAYOUT_CONFIG_LOCAL_STORAGE_KEY = `${environment.appVersion}-layoutConfig`;
+ const LAYOUT_CONFIG_LOCAL_STORAGE_KEY = `-layoutConfig`;
 
 export type LayoutType = ILayout | undefined;
 

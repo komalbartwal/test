@@ -1,8 +1,7 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClipboardModule } from 'ngx-clipboard';
 import { TranslateModule } from '@ngx-translate/core';
 import { InlineSVGModule } from 'ng-inline-svg';
@@ -10,18 +9,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './modules/auth/services/auth.service';
-import { environment } from 'src/environments/environment';
-// #fake-start#
-import { FakeAPIService } from './_fake/fake-api.service';
-// #fake-end#
-
-function appInitializer(authService: AuthService) {
-  return () => {
-    return new Promise((resolve) => {
-      authService.getUserByToken().subscribe().add(resolve);
-    });
-  };
-}
+import { ToastrModule } from 'ngx-toastr';
+import { httpInterceptor } from './modules/auth/services/httpinterceptor';
+import { ReverseAuthGuard } from './modules/auth/services/reverse.auth.guard';
+import { ErrorInterceptor } from './modules/auth/services/errorInterceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,25 +22,14 @@ function appInitializer(authService: AuthService) {
     TranslateModule.forRoot(),
     HttpClientModule,
     ClipboardModule,
-    // #fake-start#
-    environment.isMockEnabled
-      ? HttpClientInMemoryWebApiModule.forRoot(FakeAPIService, {
-          passThruUnknownUrl: true,
-          dataEncapsulation: false,
-        })
-      : [],
-    // #fake-end#
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,
+    ToastrModule.forRoot({timeOut: 3500}),
   ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      multi: true,
-      deps: [AuthService],
-    },
+  providers: [AuthService,ReverseAuthGuard,
+   {provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi: true},
+   { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })

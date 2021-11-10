@@ -19,7 +19,7 @@ body {
 	.container,
 	.container-xxl,
 	.container-fluid {
-		padding: 0 get($content-spacing, desktop);
+	    padding: 0 15px;
 	}
 
 	// Wrapper
@@ -39,13 +39,60 @@ body {
 		}
 
 		// Fixed header mode
-		.header-fixed & {
-			padding-top: get($header-config, fixed, height, desktop);
+		// .header-fixed & {
+		// 	padding-top: get($header-config, fixed, height, desktop);
+		// }
+        .card-customer-count {
+			float: left;
+			font-size: 30px;
+			font-weight: 600;
+			color: #000;
 		}
-
+		 .resource {
+			color: #a6d8a7;
+		}
+		.home {
+			color: #9da7da;
+		}
+		.heart {
+			color: #f38eb0;
+		}
+		.client {
+			color: #cdacdb;
+		}
+		.activeClient {
+			color: #faa19b;
+		}
+	     .card-customer-icon {
+			float: right;
+			margin-top: 8px;
+			font-size: 37px;
+		}
 		// Fixed header & fixed toolbar modes
 		.header-fixed.toolbar-fixed & {
-			padding-top: calc(#{get($header-config, fixed, height, desktop)} + var(--kt-toolbar-height));
+			padding-top:50px
+		}
+
+		.dashboard-sec {
+			background: white!important;
+			margin: 0 10px;
+		}
+
+		.bg-color {
+			background-color: #f5f8fa!important;
+			margin-left: -6px;
+			margin-right: -6px;
+		}
+	    .card-header-customer {
+			display: block;
+			font-size: 14px;
+			font-weight: 400;
+			margin-bottom: -19px;
+			margin-top: -14px;
+		}
+		.box-hightbody {
+			height: 90px;
+			border-radius: 6px;
 		}
 	}
 }
