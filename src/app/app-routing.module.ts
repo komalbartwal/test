@@ -4,23 +4,24 @@ import { AuthGuard } from './_core/auth/services/auth.guard';
 
 export const routes: Routes = [
   {
-    path: 'auth',
+    path: '',
     loadChildren: () =>
-      import('./_core/auth/auth.module').then((m) => m.AuthModule),
+      import('./_view/auth/auth.module').then((m) => m.AuthModule),
       
   },
   {
-    path: 'error',
+    path: 'auth',
     loadChildren: () =>
-      import('./_view/modules/errors/errors.module').then((m) => m.ErrorsModule),
+      import('./_view/auth/auth.module').then((m) => m.AuthModule),
+      
   },
   {
-    path: '',
+    path: 'dashboard',
     canActivate: [AuthGuard],
     loadChildren: () =>
-      import('./_view/_metronic/layout/layout.module').then((m) => m.LayoutModule),
+      import('../app/_view/pages/pages.module').then((m) => m.PagesModule),
   },
-  { path: '**', redirectTo: 'error/404' },
+  { path: '**', redirectTo: 'auth' },
 ];
 
 @NgModule({
