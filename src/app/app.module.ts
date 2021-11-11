@@ -8,11 +8,11 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './modules/auth/services/auth.service';
 import { ToastrModule } from 'ngx-toastr';
-import { httpInterceptor } from './modules/auth/services/httpinterceptor';
-import { ReverseAuthGuard } from './modules/auth/services/reverse.auth.guard';
-import { ErrorInterceptor } from './modules/auth/services/errorInterceptor';
+import { ReverseAuthGuard } from './_core/auth/services/reverse.auth.guard';
+import { AuthService } from '../app/_core/auth/services/auth.service';
+import { httpInterceptor } from './_core/auth/services/httpinterceptor';
+import { ErrorInterceptor } from './_core/auth/services/errorInterceptor';
 
 @NgModule({
   declarations: [AppComponent],

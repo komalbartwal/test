@@ -1,7 +1,7 @@
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { TranslationService } from '../../../../../../modules/i18n';
-import { AuthService} from '../../../../../../modules/auth';
+import { AuthService} from '../../../../../../../_core/auth/services/auth.service';
 
 @Component({
   selector: 'app-user-inner',
