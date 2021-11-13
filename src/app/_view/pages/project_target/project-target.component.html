@@ -1,0 +1,89 @@
+<p>project-target works!</p>
+<div class="container header-div">
+  <div class="row">
+    <div class="col-auto py-2">
+      <h3>
+        <i
+          class="kt-font-brand flaticon2-line-chart"
+          style="color: blue; font-size: 25px"
+        ></i
+        >&nbsp; Project Target
+      </h3>
+    </div>
+    <div class="col py-2">
+      <button class="btn btn-primary float-end">+ Add Project Target</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="language">
+          <th mat-header-cell *matHeaderCellDef>Language</th>
+          <td mat-cell *matCellDef="let element">{{ element.language }}</td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Target Date</th>
+          <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="profile">
+          <th mat-header-cell *matHeaderCellDef>Resource Profile</th>
+          <td mat-cell *matCellDef="let element">{{ element.profile }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button class="btn btn-light" style="height: 2%; width: 2%">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button class="btn btn-light" style="height: 2%; width: 2%">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+    <div class="col-12">
+      <div
+        class="d-flex flex-stack flex-wrap pt-10"
+        style="background-color: white"
+      >
+        <div class="fs-6 fw-bold text-gray-700">
+          Showing 1 to 10 of 50 entries
+        </div>
+        <ul class="pagination">
+          <li class="page-item previous">
+            <a class="page-link cursor-pointer">
+              <i class="previous"></i>
+            </a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link cursor-pointer"> 1 </a>
+          </li>
+          <li class="page-item next">
+            <a class="page-link cursor-pointer">
+              <i class="next"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,11 @@ const Routing: Routes = [
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
       canActivate: [AuthGuard]
   },
+  {
+    path: 'project-target',  
+    loadChildren: () => import('./project_target/project.module')  
+    .then(m => m.ProjectModule) 
+  }
   // {
   //   path: 'crafted/pages/profile',
   //   loadChildren: () =>

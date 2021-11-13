@@ -12,6 +12,8 @@ import { httpInterceptor } from './_core/auth/services/httpinterceptor';
 import { ErrorInterceptor } from './_core/auth/services/errorInterceptor';
 import { PagesModule } from './_view/pages/pages.module';
 
+
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,6 +24,7 @@ import { PagesModule } from './_view/pages/pages.module';
     NgbModule,
     PagesModule,
     ToastrModule.forRoot({timeOut: 3500}),
+    
   ],
   providers: [AuthService,ReverseAuthGuard,
    {provide: HTTP_INTERCEPTORS, useClass: httpInterceptor, multi: true},
