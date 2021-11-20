@@ -1,4 +1,3 @@
-<p>project-target works!</p>
 <div class="container header-div">
   <div class="row">
     <div class="col-auto py-2">
@@ -10,12 +9,31 @@
         >&nbsp; Project Target
       </h3>
     </div>
+    <div class="col py-2" style="margin-left: 10%;" >
+      <label> Show </label>
+      <select name="drop-down-list" class="drop-down-list">
+        <option selected="selected" value="50">50</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+      </select>
+      <label>Entries</label>
+    </div>
+    <div class="col py-2 " style="margin-left: 4%;">
+      <div class="searchbar">
+      <input type="text" placeholder="Search.." name="search" style="width: 230px; border: none; height: 35px"
+      />
+      <button class="searchbutton" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+      </div>
+    </div>
     <div class="col py-2">
       <button class="btn btn-primary float-end">+ Add Project Target</button>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-12">
+    <div class="col-11">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- Position Column -->
         <ng-container matColumnDef="name">
